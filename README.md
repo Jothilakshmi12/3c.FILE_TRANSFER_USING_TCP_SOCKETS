@@ -8,6 +8,18 @@ To write a python program for creating File Transfer using TCP Sockets Links
 4. Open the file and then send it to the client in byte format.
 5. In the client side receive the file from server and then write the content into it.
 ## PROGRAM
+
+### CLIENT : 
+```
+import socket
+s=socket.socket()
+s.connect(('localhost',8000))
+while True:
+ msg=input("Client > ")
+ s.send(msg.encode())
+ print("Server > ",s.recv(1024).decode())
+
+```
 ### SERVER:
 ```
 import socket
@@ -23,17 +35,6 @@ while True:
 
 ```
 
-### CLIENT : 
-```
-import socket
-s=socket.socket()
-s.connect(('localhost',8000))
-while True:
- msg=input("Client > ")
- s.send(msg.encode())
- print("Server > ",s.recv(1024).decode())
-
-```
 
 ## OUPUT
 
